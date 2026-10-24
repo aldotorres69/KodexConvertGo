@@ -37,6 +37,7 @@
 
   <ItemGroup>
     <InternalsVisibleTo Include="Filee" />
+    <InternalsVisibleTo Include="KodexConvertGo" />
     <InternalsVisibleTo Include="Filee.Engines.Tests" />
     <InternalsVisibleTo Include="Filee.App.Tests" />
   </ItemGroup>

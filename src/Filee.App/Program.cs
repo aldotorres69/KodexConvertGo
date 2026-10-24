@@ -305,4 +305,4 @@ internal static class Program
 /// <c>#Noto Sans SC</c>, <c>#Noto Sans Devanagari</c>, <c>#Noto Sans Arabic</c>, <c>#Noto Sans Thai</c>.</summary>
 internal sealed class FileeFontCollection() : Avalonia.Media.Fonts.EmbeddedFontCollection(
     new Uri("fonts:Filee", UriKind.Absolute),
-    new Uri("avares://Filee/Assets/Fonts", UriKind.Absolute));
+    new Uri("avares://KodexConvertGo/Assets/Fonts", UriKind.Absolute));
