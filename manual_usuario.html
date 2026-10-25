@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Guía de Usuario - KodexConvertGo</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 1.8cm 1.5cm 1.8cm 1.5cm;
+      @bottom-right {
+        content: counter(page);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 9pt;
+        color: #64748B;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+      color: #1E293B;
+      background-color: #FFFFFF;
+      line-height: 1.6;
+      font-size: 10.5pt;
+    }
+
+    .page {
+      page-break-after: always;
+      position: relative;
+    }
+
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    /* Portada */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 25.5cm;
+      padding: 2.5cm 1.5cm;
+      background: linear-gradient(145deg, #1E1B4B 0%, #312E81 50%, #4338CA 100%);
+      color: #FFFFFF;
+      border-radius: 12px;
+    }
+
+    .cover-header {
+      border-left: 6px solid #10B981;
+      padding-left: 20px;
+    }
+
+    .cover-title {
+      font-size: 38pt;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      color: #FFFFFF;
+    }
+
+    .cover-subtitle {
+      font-size: 16pt;
+      font-weight: 300;
+      color: #C7D2FE;
+      margin-bottom: 24px;
+    }
+
+    .badge-container {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 9pt;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .badge-green {
+      background: #10B981;
+      border-color: #059669;
+      color: #FFFFFF;
+    }
+
+    .cover-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      font-size: 9.5pt;
+      color: #A5B4FC;
+    }
+
+    /* Tipografía y Secciones */
+    h1 {
+      color: #312E81;
+      font-size: 20pt;
+      font-weight: 700;
+      margin-bottom: 14px;
+      border-bottom: 2.5px solid #4F46E5;
+      padding-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+
+    h2 {
+      color: #1E1B4B;
+      font-size: 13.5pt;
+      font-weight: 600;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    h3 {
+      color: #4338CA;
+      font-size: 11pt;
+      font-weight: 600;
+      margin-top: 14px;
+      margin-bottom: 6px;
+    }
+
+    p {
+      margin-bottom: 10px;
+      color: #334155;
+      text-align: justify;
+    }
+
+    /* Cajas y Tarjetas */
+    .card {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 14px;
+    }
+
+    .card-highlight {
+      background: #EEF2FF;
+      border-left: 4px solid #4F46E5;
+    }
+
+    .card-tip {
+      background: #ECFDF5;
+      border-left: 4px solid #10B981;
+    }
+
+    .card-warning {
+      background: #FFFBEB;
+      border-left: 4px solid #F59E0B;
+    }
+
+    .card-title {
+      font-weight: 700;
+      margin-bottom: 4px;
+      font-size: 10.5pt;
+    }
+
+    .card-tip .card-title { color: #065F46; }
+    .card-highlight .card-title { color: #312E81; }
+    .card-warning .card-title { color: #92400E; }
+
+    /* Atajos de teclado */
+    kbd {
+      background: #F1F5F9;
+      border: 1px solid #CBD5E1;
+      border-bottom: 2px solid #94A3B8;
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-size: 9pt;
+      font-family: Consolas, monospace;
+      font-weight: 700;
+      color: #0F172A;
+    }
+
+    /* Tablas */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 9.5pt;
+    }
+
+    th {
+      background: #312E81;
+      color: #FFFFFF;
+      font-weight: 600;
+      text-align: left;
+      padding: 8px 12px;
+    }
+
+    td {
+      padding: 7px 12px;
+      border-bottom: 1px solid #E2E8F0;
+      color: #334155;
+    }
+
+    tr:nth-child(even) td {
+      background: #F8FAFC;
+    }
+
+    /* Código y CLI */
+    pre {
+      background: #0F172A;
+      color: #38BDF8;
+      padding: 12px 16px;
+      border-radius: 6px;
+      font-family: Consolas, 'Courier New', Courier, monospace;
+      font-size: 9pt;
+      overflow-x: auto;
+      margin: 10px 0 14px 0;
+      line-height: 1.45;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+      font-size: 9.5pt;
+      background: #F1F5F9;
+      padding: 2px 5px;
+      border-radius: 3px;
+      color: #D946EF;
+    }
+
+    pre code {
+      background: transparent;
+      padding: 0;
+      color: inherit;
+    }
+
+    /* Imágenes */
+    .img-box {
+      text-align: center;
+      margin: 14px 0;
+    }
+
+    .img-box img {
+      max-width: 95%;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .img-caption {
+      font-size: 8.5pt;
+      color: #64748B;
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* Dos columnas */
+    .row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .col {
+      flex: 1;
+    }
+
+    /* Lista numerada elegante */
+    ol.steps {
+      list-style: none;
+      counter-reset: step-counter;
+      padding-left: 0;
+      margin: 12px 0;
+    }
+
+    ol.steps li {
+      position: relative;
+      padding-left: 38px;
+      margin-bottom: 14px;
+      text-align: justify;
+    }
+
+    ol.steps li::before {
+      content: counter(step-counter);
+      counter-increment: step-counter;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      background: #4F46E5;
+      color: #FFFFFF;
+      font-weight: 700;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 24px;
+      font-size: 9.5pt;
+    }
+
+    ul.check-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 10px 0;
+    }
+
+    ul.check-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 6px;
+    }
+
+    ul.check-list li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #10B981;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PORTADA -->
+  <div class="page cover">
+    <div class="cover-header">
+      <div class="cover-title">KodexConvertGo</div>
+      <div class="cover-subtitle">Guía Oficial de Usuario & Manual Práctico</div>
+      <p style="color: #E0E7FF; font-size: 11pt; max-width: 550px; text-align: left;">
+        El convertidor universal de escritorio más rápido, seguro y privado. Transforma más de 250 formatos directamente en tu cursor mediante un menú radial interactivo o desde tu consola.
+      </p>
+      <div class="badge-container">
+        <span class="badge badge-green">100% Offline & Privado</span>
+        <span class="badge">250+ Formatos</span>
+        <span class="badge">Menú Circular Flotante</span>
+        <span class="badge">Windows 10 / 11</span>
+        <span class="badge">Versión 2.1.0</span>
+      </div>
+    </div>
+
+    <div class="cover-footer">
+      <div>
+        <strong>Autor y Marca:</strong> KodexConvertGo<br>
+        <strong>Edición:</strong> Octubre 2026 | Documentación de Distribución
+      </div>
+      <div style="text-align: right;">
+        <strong>Soporte & Actualizaciones:</strong><br>
+        Repositorio Oficial en GitHub
+      </div>
+    </div>
+  </div>
+
+  <!-- PÁGINA 1: INTRODUCCIÓN Y FORMAS DE INSTALACIÓN -->
+  <div class="page" style="padding-top: 10px;">
+    <h1>1. Introducción y Filosofía</h1>
+    <p>
+      ¿Cansado de instalar 5 programas diferentes para convertir un HEIC, un PDF o un archivo de Word? ¿O de tener que subir documentos confidenciales a páginas web aleatorias con riesgo de fugas de datos?
+    </p>
+    <p>
+      <strong>KodexConvertGo</strong> es una herramienta de escritorio de alto rendimiento construida en <strong>C# (.NET 10) con Avalonia UI</strong>. Su principal característica es que <strong>nunca sube tus archivos a ningún servidor de internet</strong>: todo el procesamiento se realiza 100% de manera local utilizando la potencia de tu propio procesador y tarjeta gráfica.
+    </p>
+
+    <div class="row">
+      <div class="col card card-highlight">
+        <div class="card-title">🔒 Privacidad Garantizada</div>
+        Tus archivos personales, contratos y fotos nunca salen de tu ordenador. Funciona incluso si estás desconectado de internet.
+      </div>
+      <div class="col card card-tip">
+        <div class="card-title">⚡ Cero Esperas</div>
+        No hay ventanas pesadas ni tiempos de carga de navegadores web. El menú aparece justo al lado de tu puntero en milisegundos.
+      </div>
+    </div>
+
+    <h1>2. Modos de Instalación y Distribución</h1>
+    <p>
+      KodexConvertGo se distribuye en dos modalidades diseñadas para adaptarse a cualquier usuario:
+    </p>
+
+    <table style="margin-top: 8px;">
+      <thead>
+        <tr>
+          <th>Paquete</th>
+          <th>Nombre del Archivo</th>
+          <th>Recomendado para...</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Instalador Guiado</strong></td>
+          <td><code>KodexConvertGo-2.1.0-win-Setup.exe</code></td>
+          <td>Instalación fija en el equipo. Crea accesos directos, integración con el Explorador de Windows y comando en consola.</td>
+        </tr>
+        <tr>
+          <td><strong>Versión Portable</strong></td>
+          <td><code>KodexConvertGo-2.1.0-win-Portable.zip</code></td>
+          <td>Uso sin instalación. Ideal para llevar en una memoria USB o compartir por red sin necesidad de permisos de administrador.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="card card-tip" style="margin-top: 14px;">
+      <div class="card-title">💡 Nota sobre Requisitos</div>
+      Ambos paquetes son <strong>auto-contenidos</strong>. La persona que lo reciba <strong>no necesita instalar .NET</strong> ni componentes adicionales: incluye todo lo necesario para ejecutarse directamente en cualquier PC con Windows 10 u 11 (64-bit).
+    </div>
+
+    <h2>Primer Inicio y Área de Notificaciones</h2>
+    <p>
+      Al iniciarse, KodexConvertGo se minimiza de forma silenciosa en la <strong>bandeja del sistema (System Tray)</strong>, al lado del reloj de Windows. Desde allí permanece atento para responder instantáneamente al atajo del ratón, consumiendo prácticamente cero recursos de CPU y un mínimo de memoria RAM (80 - 120 MB).
+    </p>
+  </div>
+
+  <!-- PÁGINA 2: EL MÉTODO ESTRELLA: EL DONUT MENU -->
+  <div class="page" style="padding-top: 10px;">
+    <h1>3. El Método Estrella: Menú Radial "Donut"</h1>
+    <p>
+      La característica distintiva de KodexConvertGo es su <strong>menú circular interactivo en el cursor</strong>. No necesitas abrir una aplicación independiente cada vez que quieras transformar un archivo.
+    </p>
+
+    <ol class="steps">
+      <li>
+        <strong>Selecciona tus archivos:</strong> En el Explorador de Windows o en tu escritorio, selecciona uno o varios archivos que desees transformar.
+      </li>
+      <li>
+        <strong>Mantén pulsada la tecla <kbd>Ctrl</kbd>:</strong> Antes o durante el arrastre, mantén presionada la tecla <kbd>Ctrl</kbd> en tu teclado.
+      </li>
+      <li>
+        <strong>Comienza a arrastrar el archivo:</strong> Mueve el ratón levemente. De forma inmediata, se abrirá un <strong>menú flotante circular ("Donut")</strong> centrado exactamente en el puntero del ratón.
+      </li>
+      <li>
+        <strong>Suelta el archivo sobre el formato deseado:</strong> Pasa el cursor sobre la porción del círculo con el formato de tu elección (por ejemplo <code>PNG</code>, <code>PDF</code> o <code>WEBP</code>) y suelta el botón del ratón.
+      </li>
+    </ol>
+
+    <div class="card card-highlight">
+      <div class="card-title">🎯 Filtrado Inteligente de Formatos</div>
+      El menú circular solo te mostrará formatos válidos y coherentes para el archivo que estás arrastrando. Si arrastras una imagen HEIC, verás opciones como JPG, PNG, WEBP o PDF; si arrastras un documento Word, verás PDF, ODT, TXT o Markdown.
+    </div>
+
+    <div class="img-box">
+      <img src="file:///C:/PROYECTO/KodexConvertGo/docs/media/page-toolbar-dark.png" alt="Menú Circular">
+      <div class="img-caption">Vista del panel de personalización y sectores del menú radial en KodexConvertGo.</div>
+    </div>
+
+    <h2>Acciones Especiales del Menú</h2>
+    <ul class="check-list">
+      <li><strong>Unir en un solo PDF:</strong> Si arrastras múltiples documentos o fotos, puedes soltarlos sobre la opción de combinación para crear un PDF único ordenado.</li>
+      <li><strong>Empaquetar en archivo comprimido:</strong> Convierte lotes de archivos en un <code>.ZIP</code> o <code>.7Z</code> instantáneo.</li>
+      <li><strong>Arrastrar desde el navegador web:</strong> Puedes arrastrar imágenes directamente desde una página web de Google Chrome, Edge o Firefox hacia el Donut para guardarlas convertidas en tu disco.</li>
+    </ul>
+  </div>
+
+  <!-- PÁGINA 3: MÉTODOS ALTERNATIVOS Y CONFIGURACIÓN -->
+  <div class="page" style="padding-top: 10px;">
+    <h1>4. Métodos Alternativos de Conversión</h1>
+    <p>
+      Si prefieres un flujo de trabajo más tradicional o necesitas realizar ajustes visuales detallados, cuentas con dos métodos adicionales:
+    </p>
+
+    <h2>Método A: Clic Derecho en el Explorador de Windows</h2>
+    <p>
+      Haz clic derecho sobre cualquier archivo o carpeta en el Explorador de Windows. En el menú contextual encontrarás la opción <strong>"Convertir con KodexConvertGo"</strong>. Al seleccionarla, se abrirá el selector rápido con las opciones de conversión correspondientes.
+    </p>
+
+    <h2>Método B: La Ventana Principal ("Drop Zone")</h2>
+    <p>
+      Haz doble clic en el icono de KodexConvertGo en la bandeja del sistema o en tu escritorio para abrir la ventana principal:
+    </p>
+
+    <div class="img-box">
+      <img src="file:///C:/PROYECTO/KodexConvertGo/docs/media/page-home-en.png" alt="Ventana Principal">
+      <div class="img-caption">Pantalla principal de inicio con historial reciente de conversiones y zona de soltado.</div>
+    </div>
+
+    <p>
+      En esta ventana puedes arrastrar cualquier cantidad de archivos sobre la zona central o hacer doble clic para buscar carpetas enteras. Además, tendrás acceso a:
+    </p>
+    <ul class="check-list">
+      <li><strong>Historial de Conversiones Recientes:</strong> Para abrir o ubicar rápidamente tus archivos transformados.</li>
+      <li><strong>Herramientas Integradas:</strong> Recortador de imágenes, editor de páginas PDF (reordenar o eliminar hojas) y recortador de clips de audio y vídeo.</li>
+    </ul>
+
+    <div class="card card-warning" style="margin-top: 14px;">
+      <div class="card-title">⚠️ Consejo sobre Permisos de Administrador</div>
+      No ejecutes KodexConvertGo como "Administrador". Por políticas de seguridad de Windows (UIPI), el Explorador normal no puede arrastrar archivos sobre aplicaciones elevadas. KodexConvertGo está diseñado para funcionar perfectamente con permisos de usuario estándar.
+    </div>
+  </div>
+
+  <!-- PÁGINA 4: AUTOMATIZACIÓN Y LÍNEA DE COMANDOS -->
+  <div class="page" style="padding-top: 10px;">
+    <h1>5. Automatización: Carpetas Supervisadas</h1>
+    <p>
+      Puedes automatizar por completo tu flujo de trabajo configurando <strong>Carpetas Supervisadas ("Watch Folders")</strong> desde la pestaña Ajustes → Carpetas supervisadas:
+    </p>
+    <ul class="check-list">
+      <li><strong>Ejemplo:</strong> Puedes supervisar tu carpeta <code>D:\Descargas</code> o <code>D:\Escáner</code>.</li>
+      <li>Cualquier archivo nuevo que caiga en esa carpeta (por ejemplo una imagen <code>.heic</code> o un escaneo <code>.tiff</code>) se convertirá de forma automática e invisible al formato configurado (como <code>.pdf</code> o <code>.jpg</code>).</li>
+      <li>Puedes marcar la opción <em>"Mover originales a la papelera o subcarpeta"</em> para mantener tu carpeta de entrada siempre limpia y organizada.</li>
+    </ul>
+
+    <h1>6. Modo Terminal: Línea de Comandos (CLI)</h1>
+    <p>
+      Para desarrolladores, administradores de sistemas o scripts de automatización, KodexConvertGo incluye una potente herramienta de consola llamada <code>kodexconvertgo</code> (o <code>kodexconvertgo-cli</code>).
+    </p>
+
+    <h3>Comandos Comunes:</h3>
+    <pre><code># 1. Convertir una imagen a WebP con calidad del 85%
+kodexconvertgo convert foto.png --to webp --quality 85
+
+# 2. Convertir todas las fotos HEIC a JPG y guardarlas en otra carpeta
+kodexconvertgo convert *.heic --to jpg -o ./fotos_convertidas
+
+# 3. Convertir documentos de Word a PDF de forma recursiva en una carpeta
+kodexconvertgo convert C:\Documentos --recursive --to pdf
+
+# 4. Iniciar la supervisión de una carpeta desde la consola
+kodexconvertgo watch D:\BandejaEntrada --to pdf --move-originals
+
+# 5. Consultar los más de 250 formatos disponibles
+kodexconvertgo formats</code></pre>
+
+    <div class="card card-highlight">
+      <div class="card-title">⚙️ Integración en Scripts y Tareas Programadas</div>
+      El comando CLI devuelve códigos de salida estándar (<code>0</code> éxito, <code>1</code> fallos parciales, <code>2</code> argumentos incorrectos), facilitando su inclusión en scripts de PowerShell, archivos <code>.bat</code> o tareas programadas de Windows.
+    </div>
+  </div>
+
+  <!-- PÁGINA 5: FORMATOS Y PREGUNTAS FRECUENTES -->
+  <div class="page" style="padding-top: 10px;">
+    <h1>7. Catálogo de Formatos Soportados</h1>
+    <p>
+      KodexConvertGo soporta más de 250 extensiones divididas en las siguientes familias:
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 25%;">Categoría</th>
+          <th>Formatos Destacados</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Imágenes Raster</strong></td>
+          <td>PNG, JPG, JPEG, WebP, AVIF, HEIC, TIFF, BMP, GIF, ICO, PSD, PSB, TGA, ICNS, APNG, DDS, QOI.</td>
+        </tr>
+        <tr>
+          <td><strong>Fotografía RAW</strong></td>
+          <td>DNG, CR2, CR3, NEF, ARW, ORF, RAF, RW2, PEF y formatos de cámaras profesionales.</td>
+        </tr>
+        <tr>
+          <td><strong>Gráficos Vectoriales</strong></td>
+          <td>SVG, SVGZ, EPS, PS, AI (lectura), EMF, WMF, CDR (lectura), CGM, PLT.</td>
+        </tr>
+        <tr>
+          <td><strong>Documentos & Ofimática</strong></td>
+          <td>PDF, DOCX, DOC, XLSX, XLS, PPTX, PPT, ODT, ODS, ODP, RTF, Markdown, TXT, HWP/HWPX.</td>
+        </tr>
+        <tr>
+          <td><strong>Vídeo y Audio</strong></td>
+          <td>MP4, MKV, WebM, MOV, AVI, MP3, WAV, FLAC, AAC, OGG, Opus, M4A, GIF animado.</td>
+        </tr>
+        <tr>
+          <td><strong>Libros Electrónicos</strong></td>
+          <td>EPUB, MOBI, AZW3, FB2, CBZ, CBR.</td>
+        </tr>
+        <tr>
+          <td><strong>Modelos 3D y CAD</strong></td>
+          <td>STL, OBJ, GLTF, GLB, 3MF, PLY, FBX (lectura), DXF, DWG (planos CAD).</td>
+        </tr>
+        <tr>
+          <td><strong>Datos y Archivos</strong></td>
+          <td>JSON, CSV, TSV, XML, YAML, TOML, GeoJSON, KML, ZIP, 7Z, TAR, GZ, RAR (extracción).</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h1>8. Preguntas Frecuentes (FAQ)</h1>
+
+    <div class="card">
+      <div class="card-title">¿Dónde se guardan los archivos convertidos?</div>
+      Por defecto, se guardan en la misma carpeta junto al archivo original con su nueva extensión. Puedes cambiar la carpeta de destino predeterminada en Ajustes → General.
+    </div>
+
+    <div class="card">
+      <div class="card-title">¿Se sobreescribe mi archivo original?</div>
+      <strong>Nunca por defecto.</strong> KodexConvertGo siempre preserva tu archivo original intacto. Solo si activas deliberadamente la opción "Reemplazar original" en un ajuste preestablecido, el original se enviará de forma segura a la Papelera de Reciclaje de Windows tras completar la conversión.
+    </div>
+
+    <div class="card">
+      <div class="card-title">¿Cómo puedo compartir la aplicación con otros?</div>
+      Simplemente envíales el archivo <code>KodexConvertGo-2.1.0-win-Setup.exe</code> para que lo instalen, o la carpeta <code>KodexConvertGo-2.1.0-win-Portable.zip</code> para que lo ejecuten sin instalar.
+    </div>
+
+    <div style="margin-top: 25px; text-align: center; border-top: 1px solid #E2E8F0; padding-top: 15px; color: #64748B; font-size: 8.5pt;">
+      KodexConvertGo v2.1.0 · Manual de Usuario · Distribuido bajo Licencia MIT · 100% Offline y Seguro
+    </div>
+  </div>
+
+</body>
+</html>
