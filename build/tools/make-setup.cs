@@ -21,7 +21,7 @@ if (positional.Length != 4)
     return 2;
 }
 var (program, app, version, output) = (positional[0], positional[1], positional[2], positional[3]);
-if (!File.Exists(Path.Combine(app, "Filee.exe")))
+if (!File.Exists(Path.Combine(app, "Filee.exe")) && !File.Exists(Path.Combine(app, "KodexConvertGo.exe")))
 {
     Console.Error.WriteLine($"Filee.exe is missing in {app}");
     return 1;
