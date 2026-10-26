@@ -13,6 +13,20 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/Licencia-MIT-brightgreen" alt="Licencia MIT"></a>
 </p>
 
+<p align="center">
+  <a href="https://github.com/aldotorres69/KodexConvertGo/releases/download/v2.1.0/KodexConvertGo-2.1.0-win-Setup.exe">
+    <img src="https://img.shields.io/badge/Descargar%20Instalador-.EXE%20(Windows)-2563eb?style=for-the-badge&logo=windows&logoColor=white" alt="Descargar Instalador">
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/aldotorres69/KodexConvertGo/releases/download/v2.1.0/KodexConvertGo-2.1.0-win-Portable.zip">
+    <img src="https://img.shields.io/badge/Descargar%20Portable-.ZIP%20(Sin%20Instalar)-10b981?style=for-the-badge&logo=files&logoColor=white" alt="Descargar Portable">
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/aldotorres69/KodexConvertGo/releases/download/v2.1.0/Guia_de_Uso_KodexConvertGo.pdf">
+    <img src="https://img.shields.io/badge/Manual%20de%20Uso-.PDF-dc2626?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="Manual de Uso PDF">
+  </a>
+</p>
+
 ---
 
 ## 🌟 Características Principales
@@ -99,6 +113,36 @@ kodexconvertgo convert *.heic --to jpg -o ./imagenes_convertidas
 # Supervisar una carpeta y convertir automáticamente los archivos entrantes
 kodexconvertgo watch D:\Descargas --to pdf --move-originals
 ```
+
+---
+
+## 📥 Descarga e Instalación Fácil
+
+Elige la opción que mejor se adapte a tus necesidades para Windows:
+
+| Opción | Archivo | Tamaño | ¿Cuándo elegirla? |
+| :--- | :--- | :---: | :--- |
+| **💻 Instalador Completo (.exe)** | [**Descargar KodexConvertGo-Setup.exe**](https://github.com/aldotorres69/KodexConvertGo/releases/download/v2.1.0/KodexConvertGo-2.1.0-win-Setup.exe) | ~112 MB | **Recomendada**. Instala la aplicación en tu sistema, crea accesos directos y habilita la integración con el Explorador de Windows. |
+| **📦 Versión Portable (.zip)** | [**Descargar KodexConvertGo-Portable.zip**](https://github.com/aldotorres69/KodexConvertGo/releases/download/v2.1.0/KodexConvertGo-2.1.0-win-Portable.zip) | ~120 MB | **Sin instalación**. Ideal para llevar en una memoria USB o usar sin permisos de administrador. Solo descomprime y ejecuta `Filee.App.exe`. |
+| **📖 Guía Visual de Usuario (PDF)** | [**Descargar Guía en PDF**](https://github.com/aldotorres69/KodexConvertGo/releases/download/v2.1.0/Guia_de_Uso_KodexConvertGo.pdf) | ~660 KB | Manual paso a paso con capturas explicativas sobre cómo usar el Menú Donut y configurar conversiones. |
+
+### 🚀 Pasos para empezar a usarla:
+
+1. **Si elegiste el Instalador (.exe):**
+   * Descarga el archivo `KodexConvertGo-2.1.0-win-Setup.exe`.
+   * Haz doble clic sobre el archivo descargado y sigue los pasos del asistente de instalación.
+   * ¡Listo! KodexConvertGo se iniciará automáticamente y quedará activa en la bandeja del sistema (junto al reloj de Windows).
+
+2. **Si elegiste la versión Portable (.zip):**
+   * Descarga `KodexConvertGo-2.1.0-win-Portable.zip`.
+   * Haz clic derecho sobre el archivo descargado y selecciona **Extraer todo...**.
+   * Abre la carpeta extraída y haz doble clic en `Filee.App.exe` (puedes crearle un acceso directo en tu escritorio para abrirlo cómodamente).
+
+3. **Cómo convertir tu primer archivo en 3 segundos:**
+   * Abre cualquier carpeta en tu PC.
+   * Selecciona un archivo (imagen, PDF, Word, video, etc.).
+   * Mantén presionada la tecla <kbd>Ctrl</kbd> y arrastra el archivo con el mouse.
+   * Aparecerá el menú circular (**Donut Menu**) directamente en el cursor: suelta el archivo sobre el formato que desees y ¡listo! Tu archivo convertido se guardará inmediatamente.
 
 ---
 
